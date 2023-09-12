@@ -63,7 +63,7 @@ function App() {
             </div>
             <div><h1>{score.correct - score.wrong}</h1></div>
             <audio ref={ref} controls onLoadedData={() => setAudioReady(true)} style={{opacity:0}}>
-                <source src="heidi-learn-letter.MP3" type="audio/mpeg"/>
+                <source src={import.meta.env.BASE_URL+'/heidi-learn-letter.MP3'} type="audio/mpeg"/>
             </audio>
             <div>
                 <div style={{display:'flex',flexDirection:'column',gap:'1rem'}}>
