@@ -3,12 +3,12 @@ import {AiTwotoneSound} from "react-icons/ai";
 import {motion} from "framer-motion";
 
 const catalog = {
-    whichOneIs: {start: 1, end: 2.5},
+    whichOneIs: {start: 1, end: 1.43},
     goodJob: {start: 2.6, end: 3.8},
     thatIsNotRight: {start: 3.9, end: 6.3},
-    pit: {start: 6.4, end: 7.2},
+    pit: {start: 6.4, end: 7.1},
     tip: {start: 7.3, end: 7.9},
-    sit: {start: 8.0, end: 8.7},
+    sit: {start: 8.0, end: 8.6},
     sat: {start: 8.8, end: 9.4},
     be: {start: 9.5, end: 9.9},
     me: {start: 10.1, end: 10.5},
@@ -23,8 +23,10 @@ function playMethod({start, end}: { start: number, end: number }, audio: HTMLAud
             // Pause the video when it reaches the end time
             audio.ontimeupdate = function () {
                 if (audio.currentTime >= end) {
+                    audio.ontimeupdate = null;
                     audio.pause();
                     resolve(true);
+
                 }
             }
         } else {
